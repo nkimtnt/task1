@@ -4,17 +4,21 @@ const {generateAccessToken} = require("../middlewares/token");
 
 
 module.exports = {
-    createControl: (req, res) => {
+    createControl: async (req, res) => {
         const { userId, userPassword } = req.body;
         console.log(req.body)
         const newUser = {
             userId: userId,
             userPassword: userPassword,
+            accessToken: '',
+            accessTokenExpiry: '',
+            refreshToken: '',
+            refreshTokenExpiry: '',
         }
         if(userId && userPassword) {
-            const jwtToken = generateAccessToken({userId, userPassword})
+            const jwtToken = await generateAccessToken({userId, userPassword})
             console.log("===jwtToken===", jwtToken)
-            new User(newUser).save();
+            await new User(newUser).save();
             res.status(200).send({message: "success"});
         }
         else {
