@@ -9,6 +9,18 @@ const userSchema = new Schema(
         userPassword: {
             type: String,
         },
+        accessToken: {
+            type: String,
+        },
+        accessTokenExpiry: {
+            type: String,
+        },
+        refreshToken: {
+            type: String,
+        },
+        refreshTokenExpiry: {
+            type: String,
+        },
     },
     {timestamps: true},
 );
