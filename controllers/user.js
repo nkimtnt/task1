@@ -2,7 +2,6 @@ require("dotenv").config();
 const User = require("../models/User");
 const {generateAccessToken} = require("../middlewares/token");
 
-
 module.exports = {
     createControl: async (req, res) => {
         const { userId, userPassword } = req.body;
