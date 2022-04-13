@@ -40,6 +40,12 @@ revoke //
 revoke 는 기존에 있던 코드들을 재사용했는데 여기서 고민이 있다. OOP 개념을 써서 재활용을 쉽고 간단하게 하고 싶은데 일단은 그냥 붙여놓음.
 캡슐화(?) 시켜서 쉽고 빠르게 쓸 수 있도록 고민해보자
 
+delete // 
+error handling 이 반대로 되어있는거 아닌가? 유저로 찾았는데 없으면 found no user 토큰 유효하지 않다면 invalid 아닌가? 훔
+일단 두 에러의 우선순위도 잘 모르겠다. 유저부터 검색하는 것이 맞는지 토큰이 유효한지부터 보는 것이 맞는지
+oauth server 의 입장에서 본다고 치면 아니지. 유저딜리트는 왜 서버에? 모르겠다.
+보통은 유저 확인하면서 토큰이 없다면 돌려보내니까 유저부터 하는걸로!
+
 문제점 //
 2022.04.11 => 자신있던 mongoDB 에서 findOneAndUpdate 에서 $set upsert 옵션을 줘서 기존 /user/create api 에서 등록하는
 user 의 data 에 accessToken, refreshToken, expiryTime 을 추가하려고 했으나 왜인지 실패. doc 으로 save 를 해야하나.
