@@ -21,6 +21,9 @@ const userSchema = new Schema(
         refreshTokenExpiry: {
             type: String,
         },
+        jwtToken: {
+            type: String,
+        },
     },
     {timestamps: true},
 );
